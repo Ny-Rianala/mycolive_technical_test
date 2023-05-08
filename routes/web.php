@@ -1,18 +1,21 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 
 $controller_prefix = 'App\Http\Controllers\\';
 
-// This is where you want to define your path
-// and put appropriate middleware to protect your route
-// we  want to prevent unauthenticate user to go to "/" route
-// if you have more time
-// craete a middleware to prevent authenticated user from "/login" and "/register"
-
 Route::get('/', function () {
-    //TODO
-    return view('index');
+    // If the user is not authenticated, redirect them to the login page
+    if (!auth()->check()) {
+        return redirect()->route('login');
+    }
+
+    // Get the current user
+    $user = auth()->user();
+
+    // TODO: Add your logic here for the homepage
+    // For example, you could retrieve some data from the database and pass it to the view
+
+    return view('index', ['user' => $user]);
 })->middleware('auth');
 
 Route::match(array('GET', 'POST'), 'login', $controller_prefix.'AuthController@login')->name('login');
