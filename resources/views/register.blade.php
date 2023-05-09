@@ -12,15 +12,15 @@
                 </div>
 
                 <div class="form-container">
-                    <input type="text" placeholder="username" required>
+                    <input type="text" name="username" placeholder="username" required>
                 </div>
 
                 <div class="form-container">
-                    <input type="password" placeholder="password" required>
+                    <input type="password" name="password" placeholder="password" required>
                 </div>
 
                 <div class="form-container">
-                    <input type="password" placeholder="confirm password" required>
+                    <input type="password" name="password_confirmation" placeholder="confirm password" required>
                 </div>
 
                 <button class="button-submit" type="submit">Signup</button>
